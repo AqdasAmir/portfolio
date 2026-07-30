@@ -86,7 +86,7 @@ export const Projects = () => {
                  to-transparent opacity-60"
                 />
                 {/* Overlay Links */}
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 [@media(hover:none)]:hidden">
                   <a
                     href={project.link}
                     target="_blank"
@@ -105,6 +105,28 @@ export const Projects = () => {
                   </a>
                 </div>
               </div>
+
+              {/* 
+                  MOBILE LINKS - VISIBLE ONLY ON TOUCH DEVICES (NO HOVER) 
+                */}
+                <div className="hidden [@media(hover:none)]:flex items-center justify-center gap-3 pt-2">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface border border-border/50 text-xs font-medium text-muted-foreground hover:border-primary/50 hover:text-primary transition-all"
+                  >
+                    Live <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface border border-border/50 text-xs font-medium text-muted-foreground hover:border-primary/50 hover:text-primary transition-all"
+                  >
+                    GitHub <Github className="w-4 h-4" />
+                  </a>
+                </div>
 
               {/* Content */}
               <div className="p-6 space-y-4">
@@ -132,6 +154,7 @@ export const Projects = () => {
                     </span>
                   ))}
                 </div>
+
               </div>
             </div>
           ))}
